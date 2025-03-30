@@ -1,9 +1,15 @@
-from arithmetics import divide
+import pytest
+from arithmetics import div
 
-def test_add():
-    a = int(input("Enter first number: "))
-    b = int(input("Enter second number: "))
+def test_div(input_values):
+    a, b = input_values
 
-    result = divide(a,b)
+    if b == 0:
+        with pytest.raises(ValueError, match="Cannot divide by zero"):
+            div(a, b)
+        return  # Skip assertion if division by zero
 
-    print(f"\nResult of Divide ({a}, {b}) = {result}")
+    result = div(a, b)
+    expected = a / b
+    print(f"\nDivision ({a}, {b}) = {result}")
+    assert result == expected, f"Expected {expected}, but got {result}"

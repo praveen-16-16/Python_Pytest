@@ -1,9 +1,9 @@
-from arithmetics import multiply
+import pytest
+from arithmetics import mul
 
-def test_add():
-    a = int(input("Enter first number: "))
-    b = int(input("Enter second number: "))
-
-    result = multiply(a,b)
-
-    print(f"\nResult of Multiplye ({a}, {b}) = {result}")
+def test_mul(input_values):
+    a, b = input_values
+    result = mul(a, b)
+    expected = a * b
+    print(f"\nMultiplication ({a}, {b}) = {result}")
+    assert result == expected, f"Expected {expected}, but got {result}"
