@@ -1,9 +1,10 @@
 import pytest
 from arithmetics import mul
 
-def test_mul(input_values):
-    a, b = input_values
+def test_add(request):
+    a = request.config.getoption("--a")
+    b = request.config.getoption("--b")
     result = mul(a, b)
     expected = a * b
-    print(f"\nMultiplication ({a}, {b}) = {result}")
+    print(f"\nMulti ({a}, {b}) = {result}")
     assert result == expected, f"Expected {expected}, but got {result}"
