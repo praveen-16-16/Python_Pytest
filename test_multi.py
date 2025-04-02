@@ -1,7 +1,7 @@
 import pytest
 from arithmetics import mul
 
-def test_add(request):
+def test_multi(request):
     a = request.config.getoption("--a")
     b = request.config.getoption("--b")
     result = mul(a, b)
